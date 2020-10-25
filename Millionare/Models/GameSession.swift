@@ -17,7 +17,7 @@ final class GameSession {
     var percentCorrectAnswer: Int {
         guard countQuestions > 0 else { return 0 }
         let percent = Double(correctAnswers) / Double(countQuestions)
-        return Int(percent)
+        return Int(percent * 100)
     }
     var winningSum: Int = 0
     

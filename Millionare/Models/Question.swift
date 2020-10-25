@@ -9,7 +9,7 @@ import Foundation
 
 struct Question {
     let question: String
-    let answers: [String : Bool]
+    let answers: [String: Bool]
     let winningSum: Int
     
     init(_ question: String, answers: [String: Bool], sum: Int) {

@@ -27,8 +27,11 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: GameVCDelegate {
-    func didAnswer(question: Question, endTheGame: Bool) {
-        
+    func didAnswer(currentQuestion: Int, winningSum: Int, endTheGame: Bool) {
+        guard let gameSession = Game.shared.gameSession else { return }
+        gameSession.correctAnswers = currentQuestion
+        gameSession.winningSum = winningSum
+        print(gameSession.percentCorrectAnswer)
     }
 }
 
