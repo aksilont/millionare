@@ -9,6 +9,8 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var lastResultLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -31,7 +33,16 @@ extension MainViewController: GameVCDelegate {
         guard let gameSession = Game.shared.gameSession else { return }
         gameSession.correctAnswers = currentQuestion
         gameSession.winningSum = winningSum
-        print(gameSession.percentCorrectAnswer)
+        let record = Record(date: Date(), percent: gameSession.percentCorrectAnswer, sum: winningSum)
+        Game.shared.addRecord(record: record)
+        lastResultLabel.text = """
+            Последний результат: \(gameSession.percentCorrectAnswer)
+            Выигрыш: \(winningSum)
+            """
+        
+        if endTheGame {
+            Game.shared.gameSession = nil
+        }
     }
 }
 

@@ -20,10 +20,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HaX-xs-WDj">
-                                <rect key="frame" x="104.5" y="366" width="205" height="164"/>
+                                <rect key="frame" x="49" y="338.5" width="316.5" height="219"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwq-kk-30K">
-                                        <rect key="frame" x="1" y="0.0" width="203" height="84"/>
+                                        <rect key="frame" x="56.5" y="0.0" width="203" height="84"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
                                         <state key="normal" title="Играть">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -33,12 +33,21 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6q0-cE-gfe">
-                                        <rect key="frame" x="0.0" y="104" width="205" height="60"/>
+                                        <rect key="frame" x="55.5" y="104" width="205" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Результаты">
                                             <color key="titleColor" systemColor="systemYellowColor"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="bDF-Ri-bRN" kind="show" id="gbX-WU-r3V"/>
+                                        </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Последний результат: 0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqX-oM-1po">
+                                        <rect key="frame" x="0.0" y="184" width="316.5" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                        <color key="textColor" systemColor="systemOrangeColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -53,10 +62,54 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aWf-ZH-ftP" secondAttribute="trailing" id="syO-5E-vAb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lastResultLabel" destination="SqX-oM-1po" id="QZC-JC-l92"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-28" y="89"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="0hb-SL-zma">
+            <objects>
+                <viewController id="bDF-Ri-bRN" customClass="ResultViewController" customModule="Millionare" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jHr-Kn-pwa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="OHm-lh-A10">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="frJ-2D-2G7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UQu-QA-K4E"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UQu-QA-K4E" firstAttribute="trailing" secondItem="OHm-lh-A10" secondAttribute="trailing" id="6Yg-cc-tCY"/>
+                            <constraint firstItem="frJ-2D-2G7" firstAttribute="leading" secondItem="UQu-QA-K4E" secondAttribute="leading" id="HU2-oH-qkl"/>
+                            <constraint firstItem="OHm-lh-A10" firstAttribute="leading" secondItem="UQu-QA-K4E" secondAttribute="leading" id="KMt-oU-6te"/>
+                            <constraint firstAttribute="bottom" secondItem="OHm-lh-A10" secondAttribute="bottom" id="Yuy-BM-9uc"/>
+                            <constraint firstItem="OHm-lh-A10" firstAttribute="top" secondItem="jHr-Kn-pwa" secondAttribute="top" id="bI8-PU-QQU"/>
+                            <constraint firstItem="frJ-2D-2G7" firstAttribute="top" secondItem="UQu-QA-K4E" secondAttribute="top" id="jLs-KM-4aF"/>
+                            <constraint firstItem="UQu-QA-K4E" firstAttribute="bottom" secondItem="frJ-2D-2G7" secondAttribute="bottom" id="k7m-gy-RfR"/>
+                            <constraint firstItem="UQu-QA-K4E" firstAttribute="trailing" secondItem="frJ-2D-2G7" secondAttribute="trailing" id="lso-5y-dkG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NEb-RC-O9X"/>
+                    <connections>
+                        <outlet property="tableView" destination="frJ-2D-2G7" id="1eJ-gA-yIr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fzW-XS-CR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="887" y="437"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="D71-mu-sEp">
@@ -265,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eP-aW-Xds" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="861" y="88"/>
+            <point key="canvasLocation" x="887" y="-231"/>
         </scene>
     </scenes>
     <resources>
@@ -279,6 +332,9 @@
         <image name="vote1" width="500" height="300"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

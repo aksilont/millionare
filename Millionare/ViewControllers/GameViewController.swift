@@ -70,7 +70,7 @@ class GameViewController: UIViewController {
             currentWinningSum.text = "Текущий выигрыш: \(currentSum)"
             nextQuestion()
         } else {
-            gameVCDelegate?.didAnswer(currentQuestion: currentQuestion + 1, winningSum: currentSum, endTheGame: true)
+            gameVCDelegate?.didAnswer(currentQuestion: currentQuestion, winningSum: currentSum, endTheGame: true)
             dismiss(animated: true, completion: nil)
         }
         
