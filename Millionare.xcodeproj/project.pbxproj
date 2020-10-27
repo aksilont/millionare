@@ -22,6 +22,7 @@
 		33AA7DD72546078400E5C740 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AA7DD52546078400E5C740 /* ResultTableViewCell.swift */; };
 		33AA7DD82546078400E5C740 /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33AA7DD62546078400E5C740 /* ResultTableViewCell.xib */; };
 		33AB786D2548B9C400EB8326 /* Questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 33AB786C2548B9C400EB8326 /* Questions.json */; };
+		33AB78722548BBF500EB8326 /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB78712548BBF500EB8326 /* QuestionService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		33AA7DD52546078400E5C740 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		33AA7DD62546078400E5C740 /* ResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
 		33AB786C2548B9C400EB8326 /* Questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Questions.json; sourceTree = "<group>"; };
+		33AB78712548BBF500EB8326 /* QuestionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		334D1A4325432D7D005C6841 /* Millionare */ = {
 			isa = PBXGroup;
 			children = (
+				3376F65E2548C48000CD059A /* Strategy */,
 				334D1A4D25432D7D005C6841 /* Assets.xcassets */,
 				334D1A5225432D7D005C6841 /* Info.plist */,
 				334D1A4425432D7D005C6841 /* AppDelegate.swift */,
@@ -90,6 +93,7 @@
 				334D1A4A25432D7D005C6841 /* Main.storyboard */,
 				334D1A4F25432D7D005C6841 /* LaunchScreen.storyboard */,
 				33AB786B2548B98500EB8326 /* Data */,
+				33AB78702548BBD000EB8326 /* Service */,
 				336E51FA2544D9C0000E0DB7 /* Models */,
 			);
 			path = Millionare;
@@ -104,6 +108,21 @@
 				336E52022544DCB6000E0DB7 /* GameSession.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3376F65E2548C48000CD059A /* Strategy */ = {
+			isa = PBXGroup;
+			children = (
+				3376F65F2548C48900CD059A /* StrategyQuestion */,
+			);
+			path = Strategy;
+			sourceTree = "<group>";
+		};
+		3376F65F2548C48900CD059A /* StrategyQuestion */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StrategyQuestion;
 			sourceTree = "<group>";
 		};
 		33AA7DD22546062100E5C740 /* ViewControllers */ = {
@@ -132,6 +151,14 @@
 				33AB786C2548B9C400EB8326 /* Questions.json */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		33AB78702548BBD000EB8326 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				33AB78712548BBF500EB8326 /* QuestionService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +240,7 @@
 				336E52032544DCB6000E0DB7 /* GameSession.swift in Sources */,
 				33458D042546106A00088CAA /* RecordCaretaker.swift in Sources */,
 				334D1A4525432D7D005C6841 /* AppDelegate.swift in Sources */,
+				33AB78722548BBF500EB8326 /* QuestionService.swift in Sources */,
 				336E52062544DD0F000E0DB7 /* GameViewController.swift in Sources */,
 				33AA7DD72546078400E5C740 /* ResultTableViewCell.swift in Sources */,
 				336E52002544DCAD000E0DB7 /* Game.swift in Sources */,

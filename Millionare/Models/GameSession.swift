@@ -9,6 +9,8 @@ import Foundation
 
 final class GameSession {
     
+    var questionService = QuestionService()
+    
     var questions: [Question]
     var countQuestions: Int {
         questions.count
@@ -26,6 +28,6 @@ final class GameSession {
     var help50on50: Bool = true
     
     init() {
-        questions = Question.example
+        questions = questionService.loadQuestions()
     }
 }

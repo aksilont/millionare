@@ -33,10 +33,11 @@ class GameViewController: UIViewController {
               currentQuestion <= questions.count - 1
               else { return }
         let question = questions[currentQuestion]
-        questionLabel.text = "\(currentQuestion + 1). \(question.question)"
+        questionLabel.text = "\(currentQuestion + 1). \(question.text)"
         var currentAnswer = 0
         var word = ""
-        for text in question.answers.keys {
+        let answers = question.answers.shuffled()
+        for item in answers {
             switch currentAnswer {
             case 0:
                 word = "A. "
@@ -51,7 +52,7 @@ class GameViewController: UIViewController {
             }
             answerButtons.first { (button) -> Bool in
                 button.tag == currentAnswer
-            }?.setTitle(word + text, for: .normal)
+            }?.setTitle(word + item.answer, for: .normal)
             currentAnswer += 1
         }
     }
@@ -61,10 +62,11 @@ class GameViewController: UIViewController {
               currentQuestion <= questions.count - 1
               else { return }
         let question = questions[currentQuestion]
-        let currentAnswer = question.answers.first { (key, value) -> Bool in
-            (sender.titleLabel?.text?.contains(key) ?? false)
-        }!
-        if currentAnswer.value {
+        let answers = question.answers
+        guard let currentAnswer = answers.first(where: { (item) -> Bool in
+            sender.titleLabel?.text?.contains(item.answer) ?? false
+        }) else { return }
+        if currentAnswer.correct {
             currentSum = currentQuestion == 0 ? 100 : currentSum * 2
             currentQuestion += 1
             currentWinningSum.text = "Текущий выигрыш: \(currentSum)"

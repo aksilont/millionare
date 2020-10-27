@@ -19,6 +19,28 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="aWf-ZH-ftP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="WHD-YM-Cjr">
+                                <rect key="frame" x="152.5" y="624" width="70" height="23"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Z1-Xf-dIc">
+                                        <rect key="frame" x="0.0" y="0.0" width="20.5" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="gearshape.fill" catalog="system"/>
+                                        <connections>
+                                            <segue destination="vy0-WF-xT3" kind="show" id="Ls5-4f-QpE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbs-Vn-vds">
+                                        <rect key="frame" x="50.5" y="0.0" width="19.5" height="23"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="plus.app.fill" catalog="system"/>
+                                        <connections>
+                                            <segue destination="dqK-4E-Yeh" kind="show" id="ToB-kE-zsr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HaX-xs-WDj">
                                 <rect key="frame" x="29.5" y="224" width="316.5" height="219"/>
                                 <subviews>
@@ -55,8 +77,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="aWf-ZH-ftP" secondAttribute="bottom" id="3j2-s6-TO5"/>
-                            <constraint firstItem="HaX-xs-WDj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7ln-kS-CzU"/>
-                            <constraint firstItem="HaX-xs-WDj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PhD-MM-cE5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WHD-YM-Cjr" secondAttribute="bottom" constant="20" id="4oM-KY-gAP"/>
+                            <constraint firstItem="HaX-xs-WDj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BrL-Ie-4rd"/>
+                            <constraint firstItem="HaX-xs-WDj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Eap-5G-2et"/>
+                            <constraint firstItem="WHD-YM-Cjr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aTw-ub-b0b"/>
                             <constraint firstItem="aWf-ZH-ftP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dzp-cA-X0O"/>
                             <constraint firstItem="aWf-ZH-ftP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="eGz-OB-Nz2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aWf-ZH-ftP" secondAttribute="trailing" id="syO-5E-vAb"/>
@@ -68,7 +92,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-28" y="89"/>
+            <point key="canvasLocation" x="-303" y="-95"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="VbX-zy-QMK">
+            <objects>
+                <viewController id="vy0-WF-xT3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ahx-Wr-ODY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Zta-Be-LkQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yiq-AS-FDq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Csc-Sx-dB7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-714" y="825"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Nwi-Hh-UZB">
+            <objects>
+                <viewController id="dqK-4E-Yeh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qXe-aa-E2G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="VDE-rm-36K"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QG2-oq-cmp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Cj-nk-niI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="73" y="824"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="0hb-SL-zma">
@@ -109,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fzW-XS-CR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="887" y="437"/>
+            <point key="canvasLocation" x="812" y="271"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="D71-mu-sEp">
@@ -318,13 +374,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eP-aW-Xds" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="885.60000000000002" y="-231.63418290854574"/>
+            <point key="canvasLocation" x="812" y="-424"/>
         </scene>
     </scenes>
     <resources>
         <image name="background" width="1024" height="768"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="help" width="500" height="300"/>
         <image name="help1" width="500" height="300"/>
+        <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <image name="question_corner" width="263" height="50"/>
         <image name="ring" width="500" height="300"/>
         <image name="ring1" width="500" height="300"/>
