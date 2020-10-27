@@ -1,0 +1,112 @@
+[
+ {
+   "text": "Как правильно продолжить припев детской песни: \"Тили-тили...\"?",
+   "custom": false,
+   "answers": [
+     {
+       "answer": "хали-гали",
+       "correct": false
+     },
+     {
+       "answer": "трали-вали",
+       "correct": true
+     },
+     {
+       "answer": "жили-были",
+       "correct": false
+     },
+     {
+       "answer": "ели-пили",
+       "correct": false
+     }
+   ]
+ },
+ {
+   "text": "Что понадобится, чтобы взрыхлить землю на грядке?",
+   "custom": false,
+   "answers": [
+     {
+       "answer": "тяпка",
+       "correct": true
+     },
+     {
+       "answer": "бабка",
+       "correct": false
+     },
+     {
+       "answer": "скобка",
+       "correct": false
+     },
+     {
+       "answer": "тряпка",
+       "correct": false
+     }
+   ]
+ },
+ {
+   "text": "Как называется экзотическое животное из Южной Америки?",
+   "custom": false,
+   "answers": [
+     {
+       "answer": "пчеложор",
+       "correct": false
+     },
+     {
+       "answer": "термитоглот",
+       "correct": false
+     },
+     {
+       "answer": "муравьед",
+       "correct": true
+     },
+     {
+       "answer": "комаролов",
+       "correct": false
+     }
+   ]
+ },
+ {
+   "text": "Во что превращается гусеница?",
+   "custom": false,
+   "answers": [
+     {
+       "answer": "в мячик",
+       "correct": false
+     },
+     {
+       "answer": "в пирамидку",
+       "correct": false
+     },
+     {
+       "answer": "в машинку",
+       "correct": false
+     },
+     {
+       "answer": "в куколку",
+       "correct": true
+     }
+   ]
+ },
+ {
+   "text": "Что не входило в обязанности первых стюардесс?",
+   "custom": false,
+   "answers": [
+     {
+       "answer": "заправлять самолет",
+       "correct": false
+     },
+     {
+       "answer": "носить багаж",
+       "correct": false
+     },
+     {
+       "answer": "кормить пассажиров",
+       "correct": true
+     },
+     {
+       "answer": "уничтожать мух",
+       "correct": false
+     }
+   ]
+ }
+ ]

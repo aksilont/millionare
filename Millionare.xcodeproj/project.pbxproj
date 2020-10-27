@@ -21,6 +21,7 @@
 		33AA7DD02546041100E5C740 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AA7DCF2546041100E5C740 /* ResultViewController.swift */; };
 		33AA7DD72546078400E5C740 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AA7DD52546078400E5C740 /* ResultTableViewCell.swift */; };
 		33AA7DD82546078400E5C740 /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33AA7DD62546078400E5C740 /* ResultTableViewCell.xib */; };
+		33AB786D2548B9C400EB8326 /* Questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 33AB786C2548B9C400EB8326 /* Questions.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		33AA7DCF2546041100E5C740 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		33AA7DD52546078400E5C740 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		33AA7DD62546078400E5C740 /* ResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
+		33AB786C2548B9C400EB8326 /* Questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Questions.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				33AA7DD22546062100E5C740 /* ViewControllers */,
 				334D1A4A25432D7D005C6841 /* Main.storyboard */,
 				334D1A4F25432D7D005C6841 /* LaunchScreen.storyboard */,
+				33AB786B2548B98500EB8326 /* Data */,
 				336E51FA2544D9C0000E0DB7 /* Models */,
 			);
 			path = Millionare;
@@ -121,6 +124,14 @@
 				33AA7DD62546078400E5C740 /* ResultTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		33AB786B2548B98500EB8326 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				33AB786C2548B9C400EB8326 /* Questions.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +191,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33AB786D2548B9C400EB8326 /* Questions.json in Resources */,
 				334D1A5125432D7D005C6841 /* LaunchScreen.storyboard in Resources */,
 				334D1A4E25432D7D005C6841 /* Assets.xcassets in Resources */,
 				33AA7DD82546078400E5C740 /* ResultTableViewCell.xib in Resources */,
