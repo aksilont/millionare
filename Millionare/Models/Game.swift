@@ -30,7 +30,7 @@ final class Game {
     }
     
     func clearRecords() {
-        recordCaretaker.clear(type: Record.self)
+        recordCaretaker.clearRecords(type: Record.self)
         records = []
     }
     

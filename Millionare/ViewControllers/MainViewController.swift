@@ -8,7 +8,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
     @IBOutlet weak var lastResultLabel: UILabel!
     
     var strategyQuestion: StrategyQuestions {
@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "startGameSegue":
@@ -41,14 +41,15 @@ extension MainViewController: GameVCDelegate {
         guard let gameSession = Game.shared.gameSession else { return }
         gameSession.correctAnswers = currentQuestion
         gameSession.winningSum = winningSum
-        let record = Record(date: Date(), percent: gameSession.percentCorrectAnswer, sum: winningSum)
-        Game.shared.addRecord(record: record)
-        lastResultLabel.text = """
-            Последний результат: \(gameSession.percentCorrectAnswer)
-            Выигрыш: \(winningSum)
-            """
         
         if endTheGame {
+            let record = Record(date: Date(), percent: gameSession.percentCorrectAnswer, sum: winningSum)
+            Game.shared.addRecord(record: record)
+            lastResultLabel.text = """
+                Последний результат:
+                % правильных ответов: \(gameSession.percentCorrectAnswer)
+                выигрыш: \(winningSum) у.е.
+                """
             Game.shared.gameSession = nil
         }
     }

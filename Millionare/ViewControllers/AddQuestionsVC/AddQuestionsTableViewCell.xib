@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddQuestionsTableViewCell" rowHeight="138" id="bet-TN-pra" customClass="AddQuestionsTableViewCell" customModule="Millionare" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bet-TN-pra" id="4bC-iA-Sy5">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZC-WD-O83">
+                        <rect key="frame" x="10" y="10" width="394" height="54"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Cqz-Iq-Ek0">
+                        <rect key="frame" x="10" y="74" width="394" height="54"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="xGr-s5-7jE">
+                                <rect key="frame" x="0.0" y="0.0" width="190.5" height="54"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A. Answer 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TE2-LW-bs5">
+                                        <rect key="frame" x="0.0" y="0.0" width="190.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B. Answer 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXq-vj-dJD">
+                                        <rect key="frame" x="0.0" y="33.5" width="190.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="cII-dF-J8L">
+                                <rect key="frame" x="203.5" y="0.0" width="190.5" height="54"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C. Answer 3" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMm-hp-q8Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="190.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D. Answer 4" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhS-WM-qpM">
+                                        <rect key="frame" x="0.0" y="33.5" width="190.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="qZC-WD-O83" secondAttribute="trailing" constant="10" id="4Bk-WW-qWd"/>
+                    <constraint firstItem="qZC-WD-O83" firstAttribute="top" secondItem="4bC-iA-Sy5" secondAttribute="top" constant="10" id="4vH-fM-uuc"/>
+                    <constraint firstItem="qZC-WD-O83" firstAttribute="leading" secondItem="4bC-iA-Sy5" secondAttribute="leading" constant="10" id="BIE-wg-NaV"/>
+                    <constraint firstItem="Cqz-Iq-Ek0" firstAttribute="leading" secondItem="4bC-iA-Sy5" secondAttribute="leading" constant="10" id="COK-qm-mJB"/>
+                    <constraint firstAttribute="trailing" secondItem="Cqz-Iq-Ek0" secondAttribute="trailing" constant="10" id="INO-Cq-UWd"/>
+                    <constraint firstItem="Cqz-Iq-Ek0" firstAttribute="top" secondItem="qZC-WD-O83" secondAttribute="bottom" constant="10" id="Xj6-Li-3vQ"/>
+                    <constraint firstAttribute="bottom" secondItem="Cqz-Iq-Ek0" secondAttribute="bottom" constant="10" id="XyV-Xr-7D8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="textQuestionLabel" destination="qZC-WD-O83" id="RYv-iC-Zi6"/>
+                <outletCollection property="answersCollectionLabel" destination="yhS-WM-qpM" collectionClass="NSMutableArray" id="R2T-hI-aTX"/>
+                <outletCollection property="answersCollectionLabel" destination="bMm-hp-q8Z" collectionClass="NSMutableArray" id="x40-Jh-fgX"/>
+                <outletCollection property="answersCollectionLabel" destination="gXq-vj-dJD" collectionClass="NSMutableArray" id="RZD-8T-poP"/>
+                <outletCollection property="answersCollectionLabel" destination="TE2-LW-bs5" collectionClass="NSMutableArray" id="jhJ-Xd-Wqe"/>
+            </connections>
+            <point key="canvasLocation" x="-298.55072463768118" y="153.34821428571428"/>
+        </tableViewCell>
+    </objects>
+</document>

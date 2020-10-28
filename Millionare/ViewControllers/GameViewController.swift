@@ -12,7 +12,7 @@ protocol GameVCDelegate: AnyObject {
 }
 
 class GameViewController: UIViewController {
-
+    
     @IBOutlet weak var currentWinningSum: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
@@ -22,14 +22,21 @@ class GameViewController: UIViewController {
     weak var gameVCDelegate: GameVCDelegate?
     
     var questions: [Question] = []
-    var currentQuestion = 0
+    var currentQuestion = Observable<Int>(0)
     var currentSum = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setObserver()
         if loadQuestion() {
+            progressLabel.text =
+                "Прогресс: \(currentQuestion.value) из \(questions.count) вопросов, % правильных ответов: \(Game.shared.gameSession?.percentCorrectAnswer ?? 0)"
             nextQuestion()
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        currentQuestion.removeObserver(self)
     }
     
     private func loadQuestion() -> Bool {
@@ -38,12 +45,19 @@ class GameViewController: UIViewController {
         return true
     }
     
+    private func setObserver() {
+        currentQuestion.addObserver(self, options: [.initial, .new, .old]) { [weak self] (numberQuestion, _) in
+            guard let self = self else { return }
+            self.progressLabel.text =
+                "Прогресс: \(numberQuestion) из \(self.questions.count) вопросов, % правильных ответов: \(Game.shared.gameSession?.percentCorrectAnswer ?? 0)"
+        }
+    }
     func nextQuestion() {
         guard questions.isEmpty == false,
-              currentQuestion <= questions.count - 1
-              else { return }
-        let question = questions[currentQuestion]
-        questionLabel.text = "\(currentQuestion + 1). \(question.text)"
+              currentQuestion.value <= questions.count - 1
+        else { return }
+        let question = questions[currentQuestion.value]
+        questionLabel.text = "\(currentQuestion.value + 1). \(question.text)"
         var currentAnswer = 0
         var word = ""
         let answers = question.answers.shuffled()
@@ -69,20 +83,40 @@ class GameViewController: UIViewController {
     
     @IBAction func answerTapped(_ sender: UIButton) {
         guard questions.isEmpty == false,
-              currentQuestion <= questions.count - 1
-              else { return }
-        let question = questions[currentQuestion]
+              currentQuestion.value <= questions.count - 1
+        else { return }
+        
+        let question = questions[currentQuestion.value]
         let answers = question.answers
         guard let currentAnswer = answers.first(where: { (item) -> Bool in
             sender.titleLabel?.text?.contains(item.answer) ?? false
         }) else { return }
+        
         if currentAnswer.correct {
-            currentSum = currentQuestion == 0 ? 100 : currentSum * 2
-            currentQuestion += 1
-            currentWinningSum.text = "Текущий выигрыш: \(currentSum)"
+            currentSum = currentQuestion.value == 0 ? 100 : currentSum * 2
+            if currentQuestion.value == questions.count - 1 {
+                gameVCDelegate?.didAnswer(
+                    currentQuestion: currentQuestion.value + 1,
+                    winningSum: currentSum,
+                    endTheGame: true
+                )
+                dismiss(animated: true, completion: nil)
+            } else {
+                currentWinningSum.text = "Текущий выигрыш: \(currentSum)"
+                gameVCDelegate?.didAnswer(
+                    currentQuestion: currentQuestion.value + 1,
+                    winningSum: currentSum,
+                    endTheGame: false
+                )
+            }
+            currentQuestion.value += 1
             nextQuestion()
         } else {
-            gameVCDelegate?.didAnswer(currentQuestion: currentQuestion, winningSum: currentSum, endTheGame: true)
+            gameVCDelegate?.didAnswer(
+                currentQuestion: currentQuestion.value,
+                winningSum: currentSum,
+                endTheGame: true
+            )
             dismiss(animated: true, completion: nil)
         }
         

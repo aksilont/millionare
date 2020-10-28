@@ -11,7 +11,7 @@ final class Caretaker<T: Codable> {
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
     
-    private var key = "key" // "\(T.self)"
+    private var key = "\(T.self)"
     
     func saveRecords(records: [T]) {
         do {
@@ -32,8 +32,8 @@ final class Caretaker<T: Codable> {
         }
     }
     
-    func clear(type: T.Type) {
-        UserDefaults.standard.setValue(nil, forKey: "key")
+    func clearRecords(type: T.Type) {
+        UserDefaults.standard.setValue(nil, forKey: key)
     }
 }
 
