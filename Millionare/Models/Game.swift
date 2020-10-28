@@ -10,7 +10,7 @@ import Foundation
 final class Game {
     static let shared = Game()
     
-    private var recordCaretaker = RecordCaretaker()
+    private var recordCaretaker = Caretaker<Record>()
     
     private (set) var records: [Record] {
         didSet {
@@ -19,6 +19,8 @@ final class Game {
     }
     
     var gameSession: GameSession?
+    var orderQuestion: OrderQuestions = .inOrder
+    
     private init() {
         records = recordCaretaker.loadRecords()
     }
@@ -28,6 +30,7 @@ final class Game {
     }
     
     func clearRecords() {
+        recordCaretaker.clear(type: Record.self)
         records = []
     }
     

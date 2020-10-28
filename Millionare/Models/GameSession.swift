@@ -27,7 +27,7 @@ final class GameSession {
     var helpAudience: Bool = true
     var help50on50: Bool = true
     
-    init() {
-        questions = questionService.loadQuestions()
+    init(strategyQuestion: StrategyQuestions) {
+        questions = questionService.loadQuestions(strategyQuestion)
     }
 }

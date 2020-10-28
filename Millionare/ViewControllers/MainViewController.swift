@@ -11,6 +11,15 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var lastResultLabel: UILabel!
     
+    var strategyQuestion: StrategyQuestions {
+        switch Game.shared.orderQuestion {
+        case .inOrder:
+            return InOrderStrategyQuestions()
+        case .shuffle:
+            return ShuffleStrategyQuestions()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -20,8 +29,7 @@ class MainViewController: UIViewController {
         case "startGameSegue":
             guard let destionation = segue.destination as? GameViewController else { return }
             destionation.gameVCDelegate = self
-            
-            Game.shared.gameSession = GameSession()
+            Game.shared.gameSession = GameSession(strategyQuestion: strategyQuestion)
         default:
             break
         }

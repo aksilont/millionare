@@ -1,5 +1,5 @@
 //
-//  RecordCaretaker.swift
+//  Caretaker.swift
 //  Millionare
 //
 //  Created by Sky on 25.10.2020.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-final class RecordCaretaker {
+final class Caretaker<T: Codable> {
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
     
-    private var key = "key"
+    private var key = "key" // "\(T.self)"
     
-    func saveRecords(records: [Record]) {
+    func saveRecords(records: [T]) {
         do {
             let data = try encoder.encode(records)
             UserDefaults.standard.setValue(data, forKey: key)
@@ -22,13 +22,18 @@ final class RecordCaretaker {
         }
     }
     
-    func loadRecords() -> [Record] {
+    func loadRecords() -> [T] {
         guard let data = UserDefaults.standard.data(forKey: key) else { return [] }
         do {
-            return try decoder.decode([Record].self, from: data)
+            return try decoder.decode([T].self, from: data)
         } catch {
             print(error.localizedDescription)
             return []
         }
     }
+    
+    func clear(type: T.Type) {
+        UserDefaults.standard.setValue(nil, forKey: "key")
+    }
 }
+

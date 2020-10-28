@@ -9,7 +9,7 @@ import Foundation
 
 final class QuestionService {
     
-    func loadQuestions() -> [Question] {
+    func loadQuestions(_ strategyQuestion: StrategyQuestions) -> [Question] {
         var questions: [Question] = []
         do {
             if let path = Bundle.main.path(forResource: "Questions", ofType: "json"),
@@ -19,7 +19,7 @@ final class QuestionService {
         } catch {
             print(error.localizedDescription)
         }
-        return questions
+        return strategyQuestion.setOrder(in: questions)
     }
     
 }

@@ -14,22 +14,32 @@ protocol GameVCDelegate: AnyObject {
 class GameViewController: UIViewController {
 
     @IBOutlet weak var currentWinningSum: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     
     @IBOutlet var answerButtons: [UIButton]!
     
     weak var gameVCDelegate: GameVCDelegate?
     
+    var questions: [Question] = []
     var currentQuestion = 0
     var currentSum = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextQuestion()
+        if loadQuestion() {
+            nextQuestion()
+        }
+    }
+    
+    private func loadQuestion() -> Bool {
+        guard let gameSession = Game.shared.gameSession else { return false }
+        questions = gameSession.questions
+        return true
     }
     
     func nextQuestion() {
-        guard let questions = Game.shared.gameSession?.questions,
+        guard questions.isEmpty == false,
               currentQuestion <= questions.count - 1
               else { return }
         let question = questions[currentQuestion]
@@ -58,7 +68,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func answerTapped(_ sender: UIButton) {
-        guard let questions = Game.shared.gameSession?.questions,
+        guard questions.isEmpty == false,
               currentQuestion <= questions.count - 1
               else { return }
         let question = questions[currentQuestion]
