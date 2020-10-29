@@ -1,16 +1,19 @@
 //
-//  AddQuestionsTableViewCell.swift
+//  CustomQuestionCell.swift
 //  Millionare
 //
-//  Created by Sky on 28.10.2020.
+//  Created by Sky on 29.10.2020.
 //
 
 import UIKit
 
-class AddQuestionsTableViewCell: UITableViewCell {
+class CustomQuestionCell: UITableViewCell {
 
-    @IBOutlet weak var textQuestionLabel: UILabel!
-    @IBOutlet var answersCollectionLabel: [UILabel]!
+    @IBOutlet weak var questionTextView: UITextView!
+    
+    @IBOutlet var answersTextFields: [UITextField]!
+    
+    @IBOutlet var checkBoxButtons: [CheckBox]!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,9 +22,9 @@ class AddQuestionsTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
+ 
     func configure(item: Question) {
-        textQuestionLabel.text = item.text
+        questionTextView.text = item.text
         
         var currentAnswer = 0
         var word = ""
@@ -40,14 +43,21 @@ class AddQuestionsTableViewCell: UITableViewCell {
                 word = ""
             }
             
-            if let label = answersCollectionLabel.first(where: { $0.tag == currentAnswer }) {
-                label.text = word + answer.answer
+            if let textField = answersTextFields.first(where: { $0.tag == currentAnswer }) {
+                textField.text = word + answer.answer
                 if answer.correct {
-                    label.textColor = UIColor.green
+//                    textField.textColor = UIColor.green
+                    if let checkBox = checkBoxButtons.first(where: { $0.tag == currentAnswer}) {
+                        checkBox.isChecked = true
+                    }
                 }
             }
             currentAnswer += 1
         }
+    }
+    
+    override func prepareForReuse() {
+        checkBoxButtons.forEach { $0.isChecked = false }
     }
     
 }

@@ -18,49 +18,6 @@ class AddQuestionsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func addQuestionTapped(_ sender: Any) {
-        
-        let alert = UIAlertController(
-            title: "Новый вопрос",
-            message: nil,
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
-        
-        alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Текст вопроса..."
-        })
-        
-        alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Ответ A"
-        })
-        alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Ответ B"
-        })
-        alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Ответ C"
-        })
-        alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Ответ D"
-        })
-        
-        alert.addAction(UIAlertAction(title: "Добавить", style: .default, handler: { [weak self] action in
-            guard let self = self else { return }
-            if let text = alert.textFields?.first?.text {
-                let newQuestion = Question(text: text, custom: true,
-                                           answers: [Answer(answer: "test", correct: false)])
-                self.questionsCustom.append(newQuestion)
-                self.tableView.reloadData()
-            }
-
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-    
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,12 +26,13 @@ class AddQuestionsViewController: UIViewController {
     }
     
     private func setupTableView() {
-//        tableView.register(UINib(nibName: "AddQuestionsTableViewCell", bundle: nil),
-//                           forCellReuseIdentifier: "AddQuestionsTableViewCell")
         tableView.register(UINib(nibName: "CustomQuestionCell", bundle: nil),
                            forCellReuseIdentifier: "CustomQuestionCell")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.layer.borderColor = UIColor.white.cgColor
+        tableView.layer.cornerRadius = 10
+        tableView.layer.borderWidth = 2
     }
     
     private func loadQuestions() {
@@ -93,14 +51,10 @@ extension AddQuestionsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddQuestionsTableViewCell", for: indexPath) as? AddQuestionsTableViewCell
-//        else { return UITableViewCell() }
-//        let item = questionsCustom[indexPath.row]
-//        cell.configure(item: item)
-//        return cell
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomQuestionCell", for: indexPath) as? CustomQuestionCell
         else { return UITableViewCell() }
+        let item = questionsCustom[indexPath.row]
+        cell.configure(item: item)
         return cell
     }
 }
