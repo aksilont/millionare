@@ -69,8 +69,10 @@ class AddQuestionsViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView.register(UINib(nibName: "AddQuestionsTableViewCell", bundle: nil),
-                           forCellReuseIdentifier: "AddQuestionsTableViewCell")
+//        tableView.register(UINib(nibName: "AddQuestionsTableViewCell", bundle: nil),
+//                           forCellReuseIdentifier: "AddQuestionsTableViewCell")
+        tableView.register(UINib(nibName: "CustomQuestionCell", bundle: nil),
+                           forCellReuseIdentifier: "CustomQuestionCell")
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -91,10 +93,14 @@ extension AddQuestionsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddQuestionsTableViewCell", for: indexPath) as? AddQuestionsTableViewCell
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddQuestionsTableViewCell", for: indexPath) as? AddQuestionsTableViewCell
+//        else { return UITableViewCell() }
+//        let item = questionsCustom[indexPath.row]
+//        cell.configure(item: item)
+//        return cell
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomQuestionCell", for: indexPath) as? CustomQuestionCell
         else { return UITableViewCell() }
-        let item = questionsCustom[indexPath.row]
-        cell.configure(item: item)
         return cell
     }
 }
