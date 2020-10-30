@@ -13,6 +13,7 @@ final class QuestionBuilder {
     private(set) var answers: [Answer] = []
     
     func build() -> [Question] {
+        guard let _ = answers.first(where: { $0.correct }) else { return [] }
         return [Question(text: text, custom: true, answers: answers)]
     }
     
@@ -20,7 +21,8 @@ final class QuestionBuilder {
         self.text = text
     }
     
-    func addAnswer(_ answer: Answer) {
+    func addAnswer(_ textAnswer: String, correct: Bool) {
+        let answer = Answer(answer: textAnswer, correct: correct)
         self.answers.append(answer)
     }
     

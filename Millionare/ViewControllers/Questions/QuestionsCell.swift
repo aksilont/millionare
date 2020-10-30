@@ -1,5 +1,5 @@
 //
-//  CustomQuestionCell.swift
+//  QuestionsCell.swift
 //  Millionare
 //
 //  Created by Sky on 29.10.2020.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomQuestionCell: UITableViewCell {
+class QuestionsCell: UITableViewCell {
 
     @IBOutlet weak var questionTextView: UITextView!
     
@@ -23,7 +23,10 @@ class CustomQuestionCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
  
-    func configure(item: Question) {
+    func configure(questionsCustom: [Question], indexPath: IndexPath) {
+        let item = questionsCustom[indexPath.row]
+        
+//        questionTextView.delegate = self
         questionTextView.text = item.text
         
         var currentAnswer = 0
@@ -46,7 +49,6 @@ class CustomQuestionCell: UITableViewCell {
             if let textField = answersTextFields.first(where: { $0.tag == currentAnswer }) {
                 textField.text = word + answer.answer
                 if answer.correct {
-//                    textField.textColor = UIColor.green
                     if let checkBox = checkBoxButtons.first(where: { $0.tag == currentAnswer}) {
                         checkBox.isChecked = true
                     }
@@ -57,7 +59,18 @@ class CustomQuestionCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        questionTextView.text = ""
         checkBoxButtons.forEach { $0.isChecked = false }
+        answersTextFields.forEach { $0.text = "" }
     }
     
 }
+
+//extension QuestionsCell: UITextViewDelegate {
+//
+//    func textViewDidChange(_ textView: UITextView) {
+//        guard let textQuestion = textView.text else { return }
+//
+//    }
+//
+//}

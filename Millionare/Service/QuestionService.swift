@@ -22,7 +22,17 @@ final class QuestionService {
         if let strategy = strategyQuestion {
             questions = strategy.setOrder(in: questions)
         }
-        return questions
+        return questions + loadCustomQuestions()
+    }
+    
+    func saveCustomQuestions(_ questions: [Question]) {
+        let caretaker = Caretaker<Question>()
+        caretaker.saveRecords(records: questions)
+    }
+    
+    func loadCustomQuestions() -> [Question] {
+        let caretaker = Caretaker<Question>()
+        return caretaker.loadRecords()
     }
     
 }

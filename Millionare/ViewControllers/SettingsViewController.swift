@@ -42,6 +42,22 @@ class SettingsViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func clearCustomQuestions(_ sender: Any) {
+        let alert = UIAlertController(
+            title: "Уверены, что хотите удалить все пользовательские вопросы?",
+            message: nil,
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { _ in
+            let caretaker = Caretaker<Question>()
+            caretaker.clearRecords(type: Question.self)
+        }))
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

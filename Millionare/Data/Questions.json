@@ -108,5 +108,27 @@
        "correct": false
      }
    ]
+ },
+ {
+   "text": "Как называется научное исследование, посвященное одной теме?",
+   "custom": false,
+   "answers": [
+     {
+       "answer": "монография",
+       "correct": true
+     },
+     {
+       "answer": "историография",
+       "correct": false
+     },
+     {
+       "answer": "стенография",
+       "correct": false
+     },
+     {
+       "answer": "литография",
+       "correct": false
+     }
+   ]
  }
  ]
