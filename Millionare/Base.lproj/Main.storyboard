@@ -761,18 +761,18 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="nk3-Ac-2Xq">
                                         <rect key="frame" x="0.0" y="466.5" width="375" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3li-1l-ZV9">
-                                                <rect key="frame" x="0.0" y="0.0" width="105" height="50"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3li-1l-ZV9">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="300"/>
                                                 <state key="normal" image="ring"/>
                                                 <state key="selected" image="ring1"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79w-Kd-Pkf">
-                                                <rect key="frame" x="135" y="0.0" width="105" height="50"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79w-Kd-Pkf">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="300"/>
                                                 <state key="normal" image="vote"/>
                                                 <state key="selected" image="vote1"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEk-Vs-Luo">
-                                                <rect key="frame" x="270" y="0.0" width="105" height="50"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEk-Vs-Luo">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="300"/>
                                                 <state key="normal" image="help"/>
                                                 <state key="selected" image="help1"/>
                                             </button>
