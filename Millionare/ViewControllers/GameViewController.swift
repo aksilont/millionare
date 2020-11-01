@@ -13,6 +13,10 @@ protocol GameVCDelegate: AnyObject {
 
 class GameViewController: UIViewController {
     
+    @IBAction func backTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var currentWinningSum: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!

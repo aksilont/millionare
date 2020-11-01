@@ -70,8 +70,9 @@ extension QuestionsViewController: UITableViewDataSource {
 
 extension QuestionsViewController: CustomQuestionsVCDelegate {
     func saveQuestions(_ questions: [Question]) {
-        questionService.saveCustomQuestions(questions)
-        self.questions = self.questions + questions
+        let newQeustions = self.questions + questions
+        questionService.saveCustomQuestions(newQeustions)
+        self.questions = newQeustions
         self.tableView.reloadData()
     }
 }
