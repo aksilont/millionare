@@ -51,7 +51,7 @@ class SettingsViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { _ in
             let caretaker = Caretaker<Question>()
-            caretaker.clearRecords(type: Question.self)
+            caretaker.clearData(type: Question.self)
         }))
         alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
         

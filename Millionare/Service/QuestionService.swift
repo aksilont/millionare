@@ -27,12 +27,12 @@ final class QuestionService {
     
     func saveCustomQuestions(_ questions: [Question]) {
         let caretaker = Caretaker<Question>()
-        caretaker.saveRecords(records: questions)
+        caretaker.saveData(entries: questions)
     }
     
     func loadCustomQuestions() -> [Question] {
         let caretaker = Caretaker<Question>()
-        return caretaker.loadRecords()
+        return caretaker.loadData()
     }
     
 }

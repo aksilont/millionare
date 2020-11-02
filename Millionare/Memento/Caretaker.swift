@@ -13,16 +13,16 @@ final class Caretaker<T: Codable> {
     
     private var key = "\(T.self)"
     
-    func saveRecords(records: [T]) {
+    func saveData(entries: [T]) {
         do {
-            let data = try encoder.encode(records)
+            let data = try encoder.encode(entries)
             UserDefaults.standard.setValue(data, forKey: key)
         } catch {
             print(error.localizedDescription)
         }
     }
     
-    func loadRecords() -> [T] {
+    func loadData() -> [T] {
         guard let data = UserDefaults.standard.data(forKey: key) else { return [] }
         do {
             return try decoder.decode([T].self, from: data)
@@ -32,7 +32,7 @@ final class Caretaker<T: Codable> {
         }
     }
     
-    func clearRecords(type: T.Type) {
+    func clearData(type: T.Type) {
         UserDefaults.standard.setValue(nil, forKey: key)
     }
 }

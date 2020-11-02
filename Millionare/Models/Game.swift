@@ -14,7 +14,7 @@ final class Game {
     
     private (set) var records: [Record] {
         didSet {
-            recordCaretaker.saveRecords(records: records)
+            recordCaretaker.saveData(entries: records)
         }
     }
     
@@ -22,7 +22,7 @@ final class Game {
     var orderQuestion: OrderQuestions = .inOrder
     
     private init() {
-        records = recordCaretaker.loadRecords()
+        records = recordCaretaker.loadData()
     }
     
     func addRecord(record: Record) {
@@ -30,7 +30,7 @@ final class Game {
     }
     
     func clearRecords() {
-        recordCaretaker.clearRecords(type: Record.self)
+        recordCaretaker.clearData(type: Record.self)
         records = []
     }
     
