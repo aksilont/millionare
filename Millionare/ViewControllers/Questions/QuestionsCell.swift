@@ -26,7 +26,6 @@ class QuestionsCell: UITableViewCell {
     func configure(questionsCustom: [Question], indexPath: IndexPath) {
         let item = questionsCustom[indexPath.row]
         
-//        questionTextView.delegate = self
         questionTextView.text = item.text
         
         var currentAnswer = 0
@@ -49,6 +48,7 @@ class QuestionsCell: UITableViewCell {
             if let textField = answersTextFields.first(where: { $0.tag == currentAnswer }) {
                 textField.text = word + answer.answer
                 if answer.correct {
+                    textField.textColor = .green
                     if let checkBox = checkBoxButtons.first(where: { $0.tag == currentAnswer}) {
                         checkBox.isChecked = true
                     }
@@ -61,16 +61,10 @@ class QuestionsCell: UITableViewCell {
     override func prepareForReuse() {
         questionTextView.text = ""
         checkBoxButtons.forEach { $0.isChecked = false }
-        answersTextFields.forEach { $0.text = "" }
+        answersTextFields.forEach { (textField) in
+            textField.text = ""
+            textField.textColor = .black
+        }
     }
     
 }
-
-//extension QuestionsCell: UITextViewDelegate {
-//
-//    func textViewDidChange(_ textView: UITextView) {
-//        guard let textQuestion = textView.text else { return }
-//
-//    }
-//
-//}
